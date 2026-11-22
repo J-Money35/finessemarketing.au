@@ -7,9 +7,9 @@
 <title>Finesse Marketing | New site coming soon</title>
 <meta name="description" content="Finesse Marketing, Toowoomba: marketing strategy, Google and Meta ads, websites, AI and automation, and video and creative. The new site is coming soon.">
 <meta name="theme-color" content="#000000">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.ico?v=20261123" sizes="any">
+<link rel="icon" href="favicon.svg?v=20261123" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261123">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Finesse Marketing">
 <meta property="og:title" content="Finesse Marketing | New site coming soon">
@@ -48,14 +48,15 @@ p { margin: 0 0 1rem; max-width: 36rem; color: var(--soft); }
 p strong { color: var(--paper); font-weight: 600; }
 .cta {
   display: inline-flex; align-items: center; gap: 0.6rem; margin-top: 1.25rem; min-height: 3rem;
-  padding: 0.8rem 1.4rem; border-radius: 999px; background: var(--orange); color: var(--black);
-  font-family: "Outfit", Arial, sans-serif; font-weight: 600; font-size: 1.0625rem; text-decoration: none;
-  transition: background-color .15s ease;
+  padding: 0.75rem 1.35rem; border-radius: 999px; border: 1px solid var(--charcoal); background: transparent; color: var(--paper);
+  font-family: "Outfit", Arial, sans-serif; font-weight: 500; font-size: 1rem; cursor: pointer;
+  transition: border-color .15s ease, color .15s ease;
 }
-.cta:hover { background: var(--paper); }
-.cta svg { width: 1.15rem; height: 1.15rem; flex: none; }
+.cta[hidden] { display: none; }
+.cta:hover { border-color: var(--orange); }
+.cta svg { width: 1.1rem; height: 1.1rem; flex: none; color: var(--orange); }
 a:focus-visible { outline: 3px solid var(--paper); outline-offset: 4px; }
-.cta:focus-visible { outline-color: var(--orange); box-shadow: 0 0 0 2px var(--black); }
+.cta:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
 footer { width: 100%; max-width: 46rem; margin: 0 auto; padding: 1.5rem 1.25rem 2rem; border-top: 1px solid var(--charcoal); color: var(--muted); font-size: 0.8125rem; line-height: 1.55; }
 footer p { color: var(--muted); max-width: none; margin: 0 0 0.5rem; }
 footer a { color: var(--paper); text-underline-offset: 3px; }
@@ -73,13 +74,26 @@ footer a { color: var(--paper); text-underline-offset: 3px; }
     <p class="kicker">Toowoomba, Queensland</p>
     <h1>A new site is on its way<span class="dot">.</span></h1>
     <p>I'm John Hewitt, and Finesse Marketing is my business. I help businesses with <strong>marketing strategy, Google and Meta ads, websites, AI and automation, and video and creative.</strong></p>
-    <p>The full site is coming soon. Until then, the best way to reach me is on LinkedIn.</p>
-    <a class="cta" href="https://www.linkedin.com/in/john-hewitt" rel="noopener">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-      Message me on LinkedIn
-    </a>
+    <p>The full site is coming soon.</p>
+    <button class="cta" type="button" id="email-me" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3 5.5h18v13H3zM3.5 6l8.5 7 8.5-7"/></svg>
+      Email me
+    </button>
   </div>
 </main>
+<script>
+(function () {
+  var b = document.getElementById("email-me");
+  if (!b) return;
+  var k = [116,104,112,115,123,118,65,113,118,111,117,71,109,112,117,108,122,122,108,116,104,121,114,108,123,112,117,110,53,104,124];
+  b.hidden = false;
+  b.addEventListener("click", function () {
+    var s = "";
+    for (var i = 0; i < k.length; i++) s += String.fromCharCode(k[i] - 7);
+    window.location.href = s;
+  });
+})();
+</script>
 <footer>
   <p>Finesse Marketing Reporting is my in-house software. It connects to the Google Ads API to build campaigns, apply approved changes and prepare reports, only for the Google Ads accounts my clients have given me access to. Read the <a href="privacy.html">privacy policy</a>.</p>
   <p>Finesse Marketing is a trading name of J-Money Productions Pty Ltd, ABN 87 641 803 278, 5 McCallum Court, Middle Ridge QLD 4350.</p>
